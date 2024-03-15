@@ -1,15 +1,31 @@
 import { ReactComponent as GiftLogo } from '../assets/gift.svg';
 import styled from "styled-components";
 
-export const Wrapper = styled.button`
-  background-color: aquamarine;
+export const Wrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const StyledGiftLogo = styled(GiftLogo)`
   width: 120px;
   height: 120px;
   cursor: pointer;
-  transition: width 0.7s, height 0.7s;
+  transition: width 0.7s, height 0.7s, opacity 0.7s;
+  
+  opacity: ${({ isvisible }) => (isvisible ? '1' : '0')};
+  pointer-events: ${({ isvisible }) => (isvisible ? 'auto' : 'none')};
+
+  position: relative;
+  bottom: 0;
+  right: 0;
 
   &:hover {
     width: 140px;

@@ -14,13 +14,10 @@ const ButtonComponent = () => {
   };
 
   return (
-    <div>
       <Wrapper>
-        <StyledGiftLogo onClick={openBox} />
-      </Wrapper>
-
       {isBoxOpen && <Box onClose={closeModal} />}
-    </div>
+      <StyledGiftLogo isvisible={isBoxOpen ? '' : 'true'} onClick={openBox} />
+      </Wrapper>
   )
 };
 
