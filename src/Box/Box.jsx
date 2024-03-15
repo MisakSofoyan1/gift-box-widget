@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Backdrop, BoxWrapper } from './Box.styles';
+import PropTypes from 'prop-types';
 
-const Box = ({ onClose }) => {
+const Box = ({ onClose, userData }) => {
   const boxRef = useRef(null);
 
   useEffect(() => {
@@ -17,6 +18,7 @@ const Box = ({ onClose }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onClose]);
+
   return (
     <Backdrop>
       <BoxWrapper ref={boxRef}>
@@ -25,6 +27,37 @@ const Box = ({ onClose }) => {
       </BoxWrapper>
     </Backdrop>
   )
+};
+
+Box.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  userData: PropTypes.shape({
+    profile: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      balance: PropTypes.number.isRequired,
+    }).isRequired,
+    missions: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+    inbox: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
+        timestamp: PropTypes.number.isRequired,
+        seen: PropTypes.bool.isRequired,
+      }).isRequired
+    ).isRequired,
+  }).isRequired,
+};
+
+Box.defaultProps = {
+  onClose: () => { },
+  userData: {
+    profile: {
+      name: '',
+      balance: 0,
+    },
+    missions: [],
+    inbox: [],
+  },
 };
 
 export default Box;
