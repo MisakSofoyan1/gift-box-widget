@@ -5,7 +5,7 @@ import mockUserData from '../mock/userData';
 
 const ButtonComponent = () => {
   const [isBoxOpen, setIsBoxOpen] = useState(false);
-  const [userData, setUserData] = useState('');
+  const [userData, setUserData] = useState(mockUserData);
 
   const getUserDataById = async (id) => {
     //need api call to get user data

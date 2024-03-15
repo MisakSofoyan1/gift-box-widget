@@ -2,6 +2,7 @@ const mockUserData = {
   profile: {
     name: 'Dwayne Johnson',
     balance: 23500,
+    thumbnail: 'https://source.unsplash.com/200x200/?man',
   },
   missions: [1,3,5],
   inbox: [
