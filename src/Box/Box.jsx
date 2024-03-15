@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { BoxWrapper } from './Box.styles';
+import { Backdrop, BoxWrapper } from './Box.styles';
 
 const Box = ({ onClose }) => {
   const boxRef = useRef(null);
@@ -18,10 +18,12 @@ const Box = ({ onClose }) => {
     };
   }, [onClose]);
   return (
-    <BoxWrapper ref={boxRef}>
-      <button onClick={onClose}>Close Modal</button>
-      asdasdasd
-    </BoxWrapper>
+    <Backdrop>
+      <BoxWrapper ref={boxRef}>
+        <button onClick={onClose}>Close Modal</button>
+        asdasdasd
+      </BoxWrapper>
+    </Backdrop>
   )
 };
 
