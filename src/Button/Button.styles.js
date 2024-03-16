@@ -18,11 +18,9 @@ export const StyledGiftLogo = styled(GiftLogo)`
   width: 120px;
   height: 120px;
   cursor: pointer;
-  transition: width 0.7s, height 0.7s, opacity 0.7s;
-  
-  opacity: ${({ isvisible }) => (isvisible ? '1' : '0')};
-  pointer-events: ${({ isvisible }) => (isvisible ? 'auto' : 'none')};
-
+  transition: width 0.7s, height 0.7s, opacity 1.5s;
+  opacity: ${({ $isVisible }) => ($isVisible ? '1' : '0')};
+  pointer-events: ${({ $isVisible }) => ($isVisible ? 'auto' : 'none')};
   position: relative;
   bottom: 0;
   right: 0;
