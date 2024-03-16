@@ -6,6 +6,7 @@ export const BoxWrapper = styled.div`
   transform: ${({ isopen }) => isopen ? 'translate3d(0, 0, 0)' : 'translate3d(0, 65vh, 0)' };
   transition: transform 1.5s;
   width: 600px;
+  height: 90%;
 `;
 
 export const Backdrop = styled.div`

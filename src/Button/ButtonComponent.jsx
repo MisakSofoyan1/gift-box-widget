@@ -10,7 +10,7 @@ const ButtonComponent = () => {
 
   const getUserDataById = async (id) => {
     //need api call to get user data
-    console.log(id);
+    console.log(id, 'UserId');
 
     const data = mockUserData;
     setUserData(data);

@@ -3,6 +3,7 @@ import { Backdrop, BoxWrapper, CloseButton, Content, ContentWrapper, TabButton, 
 import PropTypes from 'prop-types';
 import Profile from '../Profile/ProfileComponent';
 import Shopping from '../Shopping/Shopping';
+import Mission from '../Mission/Mission';
 
 const Box = ({ onClose, userData, setIsIconVisible }) => {
   const boxRef = useRef(null);
@@ -53,7 +54,7 @@ const Box = ({ onClose, userData, setIsIconVisible }) => {
             <Shopping id={userData?.profile?.id} />
           </Content>
           <Content isactive={activeTab === 'Missions' ? 'true' : ''}>
-            Missions content
+            <Mission />
           </Content>
           <Content isactive={activeTab === 'Inbox' ? 'true' : ''}>
             Inbox content

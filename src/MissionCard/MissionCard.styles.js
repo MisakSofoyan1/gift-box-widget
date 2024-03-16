@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ShoppingCardWrapper = styled.div`
+export const MissionCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,21 +9,22 @@ export const ShoppingCardWrapper = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   flex: 0 0 calc(50% - 10px);
+  max-width: 300px;
 `;
-export const ShoppingCardImage = styled.img`
+export const MissionCardImage = styled.img`
   width: 100%;
   border-radius: 8px;
   margin-bottom: 10px;
   height: 130px;
 `;
 
-export const ShoppingCardName = styled.p`
+export const MissionCardName = styled.p`
   margin: 10px 0;
   font-size: 1.2rem;
   color: #fff;;
 `;
 
-export const ShoppingCardPrice = styled.div`
+export const MissionCardReward = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,12 +38,17 @@ export const ShoppingCardPrice = styled.div`
   margin: 10px auto;
 `;
 
-export const ShoppingCardCoinIcon = styled.img`
+export const RewardIconAmountWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const MissionCardCoinIcon = styled.img`
   margin-right: 5px;
   width: 25px;
 `;
 
-export const ShoppingCardBuyButton = styled.button`
+export const MissionCardBuyButton = styled.button`
   padding: 10px 20px;
   border: none;
   color: #fff;
@@ -57,7 +63,7 @@ export const ShoppingCardBuyButton = styled.button`
   }
 `;
 
-export const ShoppingCardDetailsButton = styled.button`
+export const MissionCardDetailsButton = styled.button`
   padding: 10px 20px;
   border: none;
   color: #fff;
@@ -76,4 +82,17 @@ export const ButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   padding-bottom: 20px;
+  margin-top: 15px;
 `;
+
+export const Terms = styled.p`
+  color: #ffffff5c;
+  font-size: 14px;
+
+  cursor: pointer;
+
+  &:hover { 
+    color: #fff;
+  }
+`;
+

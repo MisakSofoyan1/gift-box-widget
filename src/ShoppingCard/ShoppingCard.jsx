@@ -1,5 +1,14 @@
 import React from 'react';
-import { ButtonsWrapper, ShoppingCardBuyButton, ShoppingCardCoinIcon, ShoppingCardDetailsButton, ShoppingCardImage, ShoppingCardName, ShoppingCardPrice, ShoppingCardWrapper } from './Shopping.styles';
+import {
+  ButtonsWrapper,
+  ShoppingCardBuyButton,
+  ShoppingCardCoinIcon,
+  ShoppingCardDetailsButton,
+  ShoppingCardImage,
+  ShoppingCardName,
+  ShoppingCardPrice,
+  ShoppingCardWrapper
+} from './ShoppingCard.styles';
 import CoinIcon from '../assets/coin.svg';
 import PropTypes from 'prop-types';
 
@@ -8,14 +17,16 @@ const ShoppingCard = ({ image = 'https://img.rationalcdn.com/starsweb/prod/10294
     <ShoppingCardWrapper>
       <ShoppingCardImage src={image} alt={name} />
       <ShoppingCardName>{name}</ShoppingCardName>
-      <ShoppingCardPrice>
-        <ShoppingCardCoinIcon src={CoinIcon} alt="Coins" />
-        Price: {price}
-      </ShoppingCardPrice>
-      <ButtonsWrapper>
-        <ShoppingCardBuyButton onClick={onBuy}>Buy Now</ShoppingCardBuyButton>
-        <ShoppingCardDetailsButton onClick={onDetails}>Details</ShoppingCardDetailsButton>
-      </ButtonsWrapper>
+      <div>
+        <ShoppingCardPrice>
+          <ShoppingCardCoinIcon src={CoinIcon} alt="Coins" />
+          Price: {price}
+        </ShoppingCardPrice>
+        <ButtonsWrapper>
+          <ShoppingCardBuyButton onClick={onBuy}>Buy Now</ShoppingCardBuyButton>
+          <ShoppingCardDetailsButton onClick={onDetails}>Details</ShoppingCardDetailsButton>
+        </ButtonsWrapper>
+      </div>
     </ShoppingCardWrapper>
   );
 };
