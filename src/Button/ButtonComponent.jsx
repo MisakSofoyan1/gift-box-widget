@@ -6,6 +6,7 @@ import mockUserData from '../mock/userData';
 const ButtonComponent = () => {
   const [isBoxOpen, setIsBoxOpen] = useState(false);
   const [userData, setUserData] = useState(mockUserData);
+  const [isIconVisible, setIsIconVisible] = useState(true);
 
   const getUserDataById = async (id) => {
     //need api call to get user data
@@ -22,6 +23,7 @@ const ButtonComponent = () => {
     getUserDataById(id);
 
     setIsBoxOpen(true);
+    setIsIconVisible(false);
   };
 
   const closeModal = () => {
@@ -30,8 +32,8 @@ const ButtonComponent = () => {
 
   return (
     <Wrapper>
-      {isBoxOpen && <Box onClose={closeModal} userData={userData} />}
-      <StyledGiftLogo isvisible={isBoxOpen ? '' : 'true'} onClick={openBox} />
+      {isBoxOpen && <Box onClose={closeModal} userData={userData} setIsIconVisible={setIsIconVisible}/>}
+      <StyledGiftLogo isvisible={isIconVisible ? 'true' : ''} onClick={openBox} />
     </Wrapper>
   )
 };

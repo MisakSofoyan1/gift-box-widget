@@ -3,18 +3,25 @@ import { Backdrop, BoxWrapper, CloseButton, Content, ContentWrapper, TabButton, 
 import PropTypes from 'prop-types';
 import Profile from '../Profile/ProfileComponent';
 
-const Box = ({ onClose, userData }) => {
+const Box = ({ onClose, userData, setIsIconVisible }) => {
   const boxRef = useRef(null);
   const [activeTab, setActiveTab] = useState('Shop');
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
 
+  const handleClose = () => {
+    setIsOpen(false);
+    setIsIconVisible(true);
+    setTimeout(onClose, 1500);
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (boxRef.current && !boxRef.current.contains(event.target)) {
-        onClose();
+        handleClose();
       }
     };
 
@@ -23,16 +30,21 @@ const Box = ({ onClose, userData }) => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onClose]);
 
+  useEffect(() => {
+    setIsOpen(true);
+  }, []);
+
   return (
-    <Backdrop>
-      <BoxWrapper ref={boxRef}>
+    <Backdrop isopen={isOpen ? 'true' : ''}>
+      <BoxWrapper ref={boxRef} isopen={isOpen ? 'true' : ''}>
         <TabWrapper>
           <TabButton isactive={activeTab === 'Shop' ? 'true' : ''} onClick={() => handleTabClick('Shop')}>Shop</TabButton>
           <TabButton isactive={activeTab === 'Missions' ? 'true' : ''} onClick={() => handleTabClick('Missions')}>Missions</TabButton>
           <TabButton isactive={activeTab === 'Inbox' ? 'true' : ''} onClick={() => handleTabClick('Inbox')}>Inbox</TabButton>
-          <CloseButton onClick={onClose}>&#10006;</CloseButton>
+          <CloseButton onClick={handleClose}>&#10006;</CloseButton>
         </TabWrapper>
         <ContentWrapper>
           <Profile data={userData?.profile} />
@@ -69,6 +81,7 @@ Box.propTypes = {
       }).isRequired
     ).isRequired,
   }).isRequired,
+  setIsIconVisible: PropTypes.func.isRequired,
 };
 
 Box.defaultProps = {
@@ -82,6 +95,7 @@ Box.defaultProps = {
     missions: [],
     inbox: [],
   },
+  setIsIconVisible: () => { },
 };
 
 export default Box;

@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const BoxWrapper = styled.div`
   background-color: #000c24;
+  margin-right: 180px;
+  transform: ${({ isopen }) => isopen ? 'translate3d(0, 0, 0)' : 'translate3d(0, 65vh, 0)' };
+  transition: transform 1.5s;
 `;
 
 export const Backdrop = styled.div`
@@ -10,9 +13,10 @@ export const Backdrop = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: ${({ isopen }) => isopen ? 'rgba(0, 0, 0, 0.7)' : 'rgba(0, 0, 0, 0)' };
+  transition: background-color 1.5s ease;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
 `;
 
@@ -30,6 +34,7 @@ export const TabWrapper = styled.div`
   justify-content: space-around;
   margin-bottom: 10px;
   background-color: #001849;
+  gap: 10px;
 `;
 
 export const TabButton = styled.button`
@@ -37,7 +42,14 @@ export const TabButton = styled.button`
   font-size: 27px;
   background-color: ${({ isactive }) => isactive ? '#002571' : '#001849'};
   border: none;
+  color: ${({ isactive }) => isactive ? '#fff' : '#4035c9'};
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: #002571;
+    color: #fff;
+  }
 `;
 
 export const ContentWrapper = styled.div`
