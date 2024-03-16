@@ -23,6 +23,7 @@ const Profile = ({ data }) => {
 
 Profile.propTypes = {
   data: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     balance: PropTypes.number.isRequired,
     thumbnail: PropTypes.string.isRequired,
@@ -31,6 +32,7 @@ Profile.propTypes = {
 
 Profile.defaultProps = {
   profile: {
+    id: 0,
     name: '',
     balance: 0,
     thumbnail: '',

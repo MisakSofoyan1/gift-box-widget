@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Backdrop, BoxWrapper, CloseButton, Content, ContentWrapper, TabButton, TabWrapper } from './Box.styles';
 import PropTypes from 'prop-types';
 import Profile from '../Profile/ProfileComponent';
+import Shopping from '../Shopping/Shopping';
 
 const Box = ({ onClose, userData, setIsIconVisible }) => {
   const boxRef = useRef(null);
@@ -49,7 +50,7 @@ const Box = ({ onClose, userData, setIsIconVisible }) => {
         <ContentWrapper>
           <Profile data={userData?.profile} />
           <Content isactive={activeTab === 'Shop' ? 'true' : ''}>
-            Shop content
+            <Shopping id={userData?.profile?.id} />
           </Content>
           <Content isactive={activeTab === 'Missions' ? 'true' : ''}>
             Missions content
@@ -67,6 +68,7 @@ Box.propTypes = {
   onClose: PropTypes.func.isRequired,
   userData: PropTypes.shape({
     profile: PropTypes.shape({
+      id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       balance: PropTypes.number.isRequired,
       thumbnail: PropTypes.string.isRequired,
@@ -88,6 +90,7 @@ Box.defaultProps = {
   onClose: () => { },
   userData: {
     profile: {
+      id: 0,
       name: '',
       balance: 0,
       thumbnail: '',

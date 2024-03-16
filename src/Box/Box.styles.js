@@ -5,6 +5,7 @@ export const BoxWrapper = styled.div`
   margin-right: 180px;
   transform: ${({ isopen }) => isopen ? 'translate3d(0, 0, 0)' : 'translate3d(0, 65vh, 0)' };
   transition: transform 1.5s;
+  width: 600px;
 `;
 
 export const Backdrop = styled.div`
@@ -54,6 +55,9 @@ export const TabButton = styled.button`
 
 export const ContentWrapper = styled.div`
   padding: 10px;
+  overflow-y: auto;
+  max-height: calc(100vh - 200px);
+  scrollbar-width: none;
 `;
 
 export const Content = styled.div`
