@@ -14,7 +14,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-## How To Include The Script In Your Project
+## How To Include The Widget In Your Project
 
 You should create loader.js file, you can find out the example in root folder
 
