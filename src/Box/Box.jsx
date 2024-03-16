@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Profile from '../Profile/ProfileComponent';
 import Shopping from '../Shopping/Shopping';
 import Mission from '../Mission/Mission';
+import Inbox from '../Inbox/Inbox';
 
 const Box = ({ onClose, userData, setIsIconVisible }) => {
   const boxRef = useRef(null);
@@ -40,24 +41,24 @@ const Box = ({ onClose, userData, setIsIconVisible }) => {
   }, []);
 
   return (
-    <Backdrop isopen={isOpen ? 'true' : ''}>
-      <BoxWrapper ref={boxRef} isopen={isOpen ? 'true' : ''}>
+    <Backdrop $isOpen={isOpen}>
+      <BoxWrapper ref={boxRef} $isOpen={isOpen}>
         <TabWrapper>
-          <TabButton isactive={activeTab === 'Shop' ? 'true' : ''} onClick={() => handleTabClick('Shop')}>Shop</TabButton>
-          <TabButton isactive={activeTab === 'Missions' ? 'true' : ''} onClick={() => handleTabClick('Missions')}>Missions</TabButton>
-          <TabButton isactive={activeTab === 'Inbox' ? 'true' : ''} onClick={() => handleTabClick('Inbox')}>Inbox</TabButton>
+          <TabButton $isActive={activeTab === 'Shop'} onClick={() => handleTabClick('Shop')}>Shop</TabButton>
+          <TabButton $isActive={activeTab === 'Missions'} onClick={() => handleTabClick('Missions')}>Missions</TabButton>
+          <TabButton $isActive={activeTab === 'Inbox'} onClick={() => handleTabClick('Inbox')}>Inbox</TabButton>
           <CloseButton onClick={handleClose}>&#10006;</CloseButton>
         </TabWrapper>
         <ContentWrapper>
-          <Profile data={userData?.profile} />
-          <Content isactive={activeTab === 'Shop' ? 'true' : ''}>
-            <Shopping id={userData?.profile?.id} />
+          <Profile data={userData} />
+          <Content $isActive={activeTab === 'Shop'}>
+            <Shopping />
           </Content>
-          <Content isactive={activeTab === 'Missions' ? 'true' : ''}>
+          <Content $isActive={activeTab === 'Missions'}>
             <Mission />
           </Content>
-          <Content isactive={activeTab === 'Inbox' ? 'true' : ''}>
-            Inbox content
+          <Content $isActive={activeTab === 'Inbox'}>
+            <Inbox id={userData?.id} />
           </Content>
         </ContentWrapper>
       </BoxWrapper>
@@ -68,21 +69,10 @@ const Box = ({ onClose, userData, setIsIconVisible }) => {
 Box.propTypes = {
   onClose: PropTypes.func.isRequired,
   userData: PropTypes.shape({
-    profile: PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      balance: PropTypes.number.isRequired,
-      thumbnail: PropTypes.string.isRequired,
-    }).isRequired,
-    missions: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-    inbox: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        content: PropTypes.string.isRequired,
-        timestamp: PropTypes.string.isRequired,
-        seen: PropTypes.bool.isRequired,
-      }).isRequired
-    ).isRequired,
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    balance: PropTypes.number.isRequired,
+    thumbnail: PropTypes.string.isRequired,
   }).isRequired,
   setIsIconVisible: PropTypes.func.isRequired,
 };
@@ -90,14 +80,10 @@ Box.propTypes = {
 Box.defaultProps = {
   onClose: () => { },
   userData: {
-    profile: {
-      id: 0,
-      name: '',
-      balance: 0,
-      thumbnail: '',
-    },
-    missions: [],
-    inbox: [],
+    id: 0,
+    name: '',
+    balance: 0,
+    thumbnail: '',
   },
   setIsIconVisible: () => { },
 };

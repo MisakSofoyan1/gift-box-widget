@@ -33,7 +33,7 @@ const ButtonComponent = () => {
   return (
     <Wrapper>
       {isBoxOpen && <Box onClose={closeModal} userData={userData} setIsIconVisible={setIsIconVisible}/>}
-      <StyledGiftLogo isvisible={isIconVisible ? 'true' : ''} onClick={openBox} />
+      <StyledGiftLogo $isVisible={isIconVisible} onClick={openBox} />
     </Wrapper>
   )
 };
