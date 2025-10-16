@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/gift-box-widget/static/css/main.31d6cfe0.css",
+    "main.js": "/gift-box-widget/static/js/main.b865eaa3.js",
+    "static/js/453.2a82e7ac.chunk.js": "/gift-box-widget/static/js/453.2a82e7ac.chunk.js",
+    "static/media/gift.svg": "/gift-box-widget/static/media/gift.732d067c5c9056d78690a0b37a0d2085.svg",
+    "static/media/coin.svg": "/gift-box-widget/static/media/coin.23d2b9894d0ae3daabbb84309cc34e22.svg",
+    "index.html": "/gift-box-widget/index.html",
+    "main.b865eaa3.js.map": "/gift-box-widget/static/js/main.b865eaa3.js.map",
+    "453.2a82e7ac.chunk.js.map": "/gift-box-widget/static/js/453.2a82e7ac.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.b865eaa3.js"
+  ]
+}
