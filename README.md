@@ -19,7 +19,7 @@ You may also see any lint errors in the console.
 You should create loader.js file, you can find out the example in root folder
 
 in loader.js file you can pass the id of user with simple query
-const widgetUrl = 'https://misaksofoyan1.github.io/gift-box-widget/build/index.html?id=UserId';
+const widgetUrl = 'https://misaksofoyan1.github.io/gift-box-widget/';
 
 Then include the loader.js script in html.
 
