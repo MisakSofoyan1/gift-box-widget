@@ -16,6 +16,7 @@ export const MissionCardImage = styled.img`
   border-radius: 8px;
   margin-bottom: 10px;
   height: 130px;
+  object-fit: cover;
 `;
 
 export const MissionCardName = styled.p`

@@ -8,7 +8,7 @@ const mockMissionCards = [
   },
   {
     id: 1,
-    image: 'https://cdn.siege.gg/img/articles/3643.0efa077.png',
+    image: 'https://games.evolution.com/wp-content/uploads/2023/09/american_roulette_poster_600x840.jpg',
     name: 'PLAY A TOTAL OF $500 ON LIVE ROULETTE TABLES',
     reward: 2000,
     buttonName: 'Play',
